@@ -1,55 +1,22 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
 
-st.set_page_config(page_title="Streamlit UI Demo", layout="wide")
+st.set_page_config(page_title="자기 소개 페이지", layout="wide")
 
-st.title("🔧 Streamlit 기본 컴포넌트 데모")
-st.write("이 데모 페이지는 Streamlit에서 자주 쓰는 기본 요소를 보여줍니다.")
+st.title("👋 안녕하세요! 자기 소개 페이지입니다")
 
-st.header("1) 텍스트/마크다운")
-st.caption("`st.write`, `st.markdown`, `st.subheader`, `st.latex` 사용 예시")
-st.write("안녕하세요, Streamlit 앱입니다!")
-st.markdown("**굵은 텍스트**와 *기울임 텍스트*, `코드`, [링크](https://streamlit.io)")
-st.subheader("서브헤더")
-st.latex(r"E = mc^2")
+st.header("이름")
+st.write("홍길동")
 
-st.header("2) 인풋 위젯")
-col1, col2, col3 = st.columns(3)
-with col1:
-    name = st.text_input("이름")
-    age = st.number_input("나이", min_value=0, max_value=120, value=25)
-with col2:
-    color = st.color_picker("선호 색")
-    agree = st.checkbox("이용 약관에 동의함")
-with col3:
-    option = st.selectbox("옵션 선택", ["옵션 A", "옵션 B", "옵션 C"])
-    choice = st.radio("라디오 선택", ["예", "아니오"])
+st.header("소개")
+st.write("안녕하세요! 저는 개발을 사랑하는 스트리머입니다. 새로운 기술을 배우고 사람들과 아이디어를 공유하는 것을 즐깁니다.")
 
-if st.button("결과 보기"):
-    st.success(f"{name}님({age}세), 선택 값: {option}, 라디오: {choice}, 색: {color}, 동의: {agree}")
+st.header("기술 스택")
+st.write("- Python\n- Streamlit\n- 데이터 분석 (Pandas, NumPy)\n- 웹 개발 (HTML/CSS, JavaScript)")
 
-st.header("3) 데이터 및 테이블")
+st.header("취미")
+st.write("- 독서\n- 사이클링\n- 음악 감상")
 
-df = pd.DataFrame({
-    "날짜": pd.date_range("2023-01-01", periods=5, freq="D"),
-    "값": np.random.randint(10, 100, size=5),
-})
+st.header("연락처")
+st.write("- 이메일: example@example.com\n- 깃허브: https://github.com/your-username")
 
-st.dataframe(df)
-st.table(df)
-
-st.header("4) 차트")
-chart_data = pd.DataFrame(np.random.randn(20, 3), columns=["a", "b", "c"])
-st.line_chart(chart_data)
-st.bar_chart(chart_data)
-
-st.header("5) 레이아웃 & 상호작용")
-with st.expander("숨김 정보 펼치기"):
-    st.write("여기에 추가 설명을 넣을 수 있습니다.")
-
-with st.spinner("로딩 중..."):
-    import time
-    time.sleep(0.5)
-
-st.success("모든 컴포넌트 데모가 준비되었습니다!")
+st.success("자기 소개 페이지가 업데이트되었습니다!")

@@ -1,8 +1,15 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import plotly.express as px
 from io import StringIO
+
+# 한글 폰트 설정
+font_path = '/workspaces/260318-practice/fonts/NanumGothic-Regular.ttf'
+font_prop = fm.FontProperties(fname=font_path)
+plt.rcParams['font.family'] = font_prop.get_name()
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 
 st.title("데이터 시각화 예시")
 
